@@ -1,1 +1,3 @@
-# ai-drug-platform
+# AI Drug Discovery Platform
+
+Initial scaffold generated.
