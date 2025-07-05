@@ -4,9 +4,9 @@ from typing import Dict
 import sys
 import os
 
-# Add path to ml-engine
+# Make sure the ML engine path is added
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../ml-engine")))
-from predictor import predict as ml_predict  # import predict function
+from predictor import predict as ml_predict
 
 router = APIRouter()
 
