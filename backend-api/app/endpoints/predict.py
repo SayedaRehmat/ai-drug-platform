@@ -1,8 +1,12 @@
-from fastapi import APIRouter
+ from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import Dict
-import subprocess
-import json
+import sys
+import os
+
+# Add path to ml-engine
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../ml-engine")))
+from predictor import predict as ml_predict  # import predict function
 
 router = APIRouter()
 
@@ -12,11 +16,9 @@ class PredictionInput(BaseModel):
 
 @router.post("/predict")
 def predict(input: PredictionInput) -> Dict:
-    # Call dummy predictor from ml-engine
-    # Simulate prediction for now
-    score = 0.85
+    result = ml_predict(input.compound, input.protein)
     return {
         "compound": input.compound,
         "protein": input.protein,
-        "binding_score": score
+        "binding_score": result["binding_score"]
     }
