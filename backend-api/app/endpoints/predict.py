@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 from typing import Dict
-import sys
-import os
+import sys, os
 
-# Make sure the ML engine path is added
+# Add path to ml-engine
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../ml-engine")))
 from predictor import predict as ml_predict
 
