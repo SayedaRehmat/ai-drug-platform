@@ -1,5 +1,6 @@
+# backend-api/app/main.py
 from fastapi import FastAPI
-from app.endpoints import health, predict
+from endpoints import health, predict
 
 app = FastAPI()
 app.include_router(health.router)
